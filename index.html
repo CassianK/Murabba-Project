@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cassian's Strategy Lab: Inside the Cube | Saudi Arabia New Murabba Analysis</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #2C2C2C;
+            background: #FFFFFF;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+            background: #FFFFFF;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #003366 0%, #001a33 100%);
+            color: #FFFFFF;
+            padding: 48px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            transform: rotate(45deg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.03);
+            transform: rotate(45deg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        
+        .header h1 {
+            font-family: Arial, sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        
+        .header .subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .header .meta {
+            font-size: 12px;
+            opacity: 0.7;
+            font-weight: 400;
+        }
+        
+        /* Executive Summary */
+        .executive-summary {
+            background: #F8F9FA;
+            border-left: 4px solid #003366;
+            padding: 32px 60px;
+            margin: 0;
+        }
+        
+        .executive-summary h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #003366;
+            margin-bottom: 24px;
+            letter-spacing: -0.3px;
+        }
+        
+        .key-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin: 32px 0;
+        }
+        
+        .metric-card {
+            background: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            padding: 24px;
+            text-align: left;
+        }
+        
+        .metric-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #003366;
+            line-height: 1;
+            margin-bottom: 8px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .metric-label {
+            font-size: 12px;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+        
+        /* Main Content */
+        .content {
+            padding: 0 60px;
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            margin: 64px 0;
+            padding: 48px 32px 48px 48px;
+            border-bottom: 1px solid #E5E5E5;
+            background: #FFFFFF;
+            position: relative;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, #003366, #00509e);
+        }
+        
+        .section::after {
+            content: '';
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 12px;
+            height: 12px;
+            background: rgba(0, 51, 102, 0.1);
+            transform: rotate(45deg);
+            border: 1px solid rgba(0, 51, 102, 0.2);
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-header {
+            margin-bottom: 32px;
+        }
+        
+        .section-number {
+            font-size: 14px;
+            color: #666666;
+            font-weight: 500;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #003366;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            letter-spacing: -0.4px;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2C2C2C;
+            margin: 32px 0 16px 0;
+            letter-spacing: -0.2px;
+        }
+        
+        /* Typography */
+        p {
+            margin-bottom: 16px;
+            color: #2C2C2C;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .lead-paragraph {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #2C2C2C;
+            margin-bottom: 24px;
+        }
+        
+        strong {
+            font-weight: 600;
+            color: #003366;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin: 16px 0 16px 24px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        /* Data Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 13px;
+        }
+        
+        .data-table th {
+            background: #F8F9FA;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            color: #2C2C2C;
+            border-bottom: 2px solid #E5E5E5;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .data-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #E5E5E5;
+            vertical-align: top;
+        }
+        
+        .data-table .number {
+            font-family: 'Courier New', monospace;
+            text-align: right;
+            font-weight: 500;
+        }
+        
+        /* Highlight Boxes */
+        .highlight-box {
+            background: #F8F9FA;
+            border-left: 4px solid #003366;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        
+        .highlight-box.warning {
+            border-left-color: #FF6B35;
+            background: #FFF8F6;
+        }
+        
+        .highlight-box.success {
+            border-left-color: #28A745;
+            background: #F8FFF9;
+        }
+        
+        /* Company Cards */
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+        
+        .company-card {
+            background: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            padding: 24px;
+        }
+        
+        .company-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #003366;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #003366;
+        }
+        
+        .company-projects {
+            list-style: none;
+            margin: 0;
+        }
+        
+        .company-projects li {
+            margin: 12px 0;
+            padding-left: 16px;
+            position: relative;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        
+        .company-projects li:before {
+            content: "•";
+            color: #003366;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* Timeline */
+        .timeline {
+            margin: 32px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 24px;
+            align-items: flex-start;
+        }
+        
+        .timeline-date {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            font-weight: 600;
+            color: #003366;
+            width: 120px;
+            flex-shrink: 0;
+            text-align: right;
+            margin-right: 24px;
+            padding-top: 2px;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: #F8F9FA;
+            padding: 16px 20px;
+            border-left: 3px solid #003366;
+        }
+        
+        .timeline-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2C2C2C;
+            margin-bottom: 8px;
+        }
+        
+        /* Media Links */
+        .media-section {
+            background: #F8F9FA;
+            padding: 20px;
+            margin: 24px 0;
+            border-left: 3px solid #666666;
+        }
+        
+        .media-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #2C2C2C;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .media-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .media-link {
+            color: #003366;
+            text-decoration: none;
+            font-size: 13px;
+            padding: 8px 0;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+        
+        .media-link:hover {
+            border-bottom-color: #003366;
+        }
+        
+        /* Image Containers */
+        .image-container {
+            margin: 32px 0;
+            text-align: center;
+            background: #F8F9FA;
+            padding: 20px;
+            border: 1px solid #E5E5E5;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .image-caption {
+            font-size: 12px;
+            color: #666666;
+            margin-top: 12px;
+            font-style: italic;
+            text-align: center;
+        }
+        
+        /* Investment Thesis */
+        .investment-thesis {
+            background: #003366;
+            color: #FFFFFF;
+            padding: 48px 60px;
+            margin: 64px -60px;
+        }
+        
+        .investment-thesis h2 {
+            color: #FFFFFF;
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .thesis-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        
+        .thesis-point {
+            margin-bottom: 24px;
+            margin-right: 24px;
+        }
+        
+        .thesis-point h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .thesis-point p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        /* Risk Matrix */
+        .risk-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin: 32px 0;
+        }
+        
+        .risk-item {
+            background: #F8F9FA;
+            border-left: 4px solid #666666;
+            padding: 16px;
+        }
+        
+        .risk-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .risk-description {
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        
+        /* Responsive Adjustments */
+        @media screen and (max-width: 768px) {
+            .content {
+                padding: 0 20px;
+            }
+            
+            .header {
+                padding: 32px 20px;
+            }
+            
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .header .subtitle {
+                font-size: 16px;
+            }
+            
+            .header .meta {
+                font-size: 10px;
+            }
+            
+            .key-metrics {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .metric-card {
+                margin-bottom: 16px;
+            }
+            
+            .company-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .media-section {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<header class="header">
+<div class="header-content">
+<div style="display: flex; align-items: center; margin-bottom: 16px;">
+<div style="width: 32px; height: 32px; background: #FFFFFF; margin-right: 16px; transform: rotate(45deg); border: 2px solid #FFFFFF;"></div>
+<div>
+<div style="font-size: 14px; font-weight: 400; opacity: 0.8; margin-bottom: 4px;">CASSIAN'S STRATEGY LAB</div>
+<div style="font-size: 16px; font-weight: 600; opacity: 0.9;">INSIDE THE CUBE</div>
+</div>
+</div>
+<h1>Saudi Arabia New Murabba Project</h1>
+<section style="padding:40px;">
+<h2 style="text-align:center;">📸 New Murabba Official Photo Gallery</h2>
+<div style="margin:40px 0; text-align:center;">
+<img alt="Immersive Dome Experience" src="20250618_1414_Immersive Dome Experience_simple_compose_01jy0qa1y0f65r830ttkf2wgzx.png" style="max-width:100%; width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"/><br/>
+<small style="color:#555;">Immersive Dome Experience</small>
+</div>
+<div style="margin:40px 0; text-align:center;">
+<img alt="Futuristic Eco-City Sunrise" src="20250618_1415_Futuristic Eco-City Sunrise_simple_compose_01jy0qa8bpeggvszc5hsbkm2bb.png" style="max-width:100%; width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"/><br/>
+<small style="color:#555;">Futuristic Eco-City Sunrise</small>
+</div>
+<div style="margin:40px 0; text-align:center;">
+<img alt="Immersive Dome Experience" src="20250618_1414_Immersive Dome Experience_simple_compose_01jy0qa1y3ft7vcrzwxb59khp8.png" style="max-width:100%; width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"/><br/>
+<small style="color:#555;">Immersive Dome Experience</small>
+</div>
+<div style="margin:40px 0; text-align:center;">
+<img alt="Mukaab at Golden Hour" src="20250618_1414_Mukaab at Golden Hour_simple_compose_01jy0q9vb7f75vt3y5h09n4m5q.png" style="max-width:100%; width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"/><br/>
+<small style="color:#555;">Mukaab at Golden Hour</small>
+</div>
+<div style="margin:40px 0; text-align:center;">
+<img alt="Futuristic Mobility Hub" src="20250618_1415_Futuristic Mobility Hub_simple_compose_01jy0qapdbfph8gayqj1822b7v.png" style="max-width:100%; width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"/><br/>
+<small style="color:#555;">Futuristic Mobility Hub</small>
+</div>
+<div style="margin:40px 0; text-align:center;">
+<img alt="Futuristic Family Park" src="20250618_1415_Futuristic Family Park_simple_compose_01jy0qaf8sezsb62f0m0q32t1t.png" style="max-width:100%; width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"/><br/>
+<small style="color:#555;">Futuristic Family Park</small>
+</div>
+<div style="margin:40px 0; text-align:center;">
+<img alt="Gala Dinner Elegance" src="20250618_1416_Gala Dinner Elegance_simple_compose_01jy0qd0y7ebf9wnwbykr2dxrc.png" style="max-width:100%; width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"/><br/>
+<small style="color:#555;">Gala Dinner Elegance</small>
+</div>
+<div style="margin:40px 0; text-align:center;">
+<img alt="Global Construction Collaboration" src="20250618_1416_Global Construction Collaboration_simple_compose_01jy0qd957f0zbfbdewekd71zk.png" style="max-width:100%; width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"/><br/>
+<small style="color:#555;">Global Construction Collaboration</small>
+</div>
+<div style="margin:40px 0; text-align:center;">
+<img alt="Futuristic K-pop Spectacle" src="20250618_1417_Futuristic K-pop Spectacle_simple_compose_01jy0qe5p0f5sa9zbe196fm09j.png" style="max-width:100%; width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"/><br/>
+<small style="color:#555;">Futuristic K-pop Spectacle</small>
+</div>
+<div style="margin:40px 0; text-align:center;">
+<img alt="Futuristic City Command Center" src="20250618_1421_Futuristic City Command Center_simple_compose_01jy0qnp8yeavrw9d9t4rvqg9r.png" style="max-width:100%; width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"/><br/>
+<small style="color:#555;">Futuristic City Command Center</small>
+</div>
+<div style="margin:40px 0; text-align:center;">
+<img alt="Bilingual Mediation Agreement Signing" src="20250618_1425_Bilingual Mediation Agreement Signing_simple_compose_01jy0qx2jrfjf8wre8zzgpmd00.png" style="max-width:100%; width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"/><br/>
+<small style="color:#555;">Bilingual Mediation Agreement Signing</small>
+</div>
+<div style="margin:40px 0; text-align:center;">
+<img alt="Solar Inspection in Desert" src="20250618_1421_Solar Inspection in Desert_simple_compose_01jy0qnxw7fqnrhaczc6jgjqh3.png" style="max-width:100%; width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"/><br/>
+<small style="color:#555;">Solar Inspection in Desert</small>
+</div>
+<div style="margin:40px 0; text-align:center;">
+<img alt="Futuristic Classroom Innovation" src="20250618_1425_Futuristic Classroom Innovation_simple_compose_01jy0qwwvpfq2s56mx8mdstdyk.png" style="max-width:100%; width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"/><br/>
+<small style="color:#555;">Futuristic Classroom Innovation</small>
+</div>
+<div style="margin:40px 0; text-align:center;">
+<img alt="Golden Mukaab Nightscape" src="20250618_1425_Golden Mukaab Nightscape_simple_compose_01jy0qxjbtekdbq1a1zv7332zm.png" style="max-width:100%; width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"/><br/>
+<small style="color:#555;">Golden Mukaab Nightscape</small>
+</div>
+<div style="margin:40px 0; text-align:center;">
+<img alt="International Arbitration Meeting" src="20250618_1447_International Arbitration Meeting_simple_compose_01jy0s6nv9fam8qzaryrsjaqmm.png" style="max-width:100%; width:800px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"/><br/>
+<small style="color:#555;">International Arbitration Meeting</small>
+</div>
+</section>
+
+<div class="subtitle">Strategic Investment Analysis &amp; Korean Market Entry Assessment</div>
+<div class="meta">Investment Committee Presentation • June 2025 • Confidential</div>
+</div>
+</header>
+<section class="executive-summary">
+<div style="display: flex; align-items: center; margin-bottom: 24px;">
+<div style="width: 20px; height: 20px; background: #003366; margin-right: 12px; transform: rotate(45deg); border: 1px solid #003366;"></div>
+<div>
+<h2 style="margin: 0;">Executive Summary</h2>
+<div style="font-size: 11px; color: #666666; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px;">Strategic Analysis Framework</div>
+</div>
+</div>
+<p class="lead-paragraph">Saudi Arabia's New Murabba represents a <strong>$50 billion megaproject</strong> positioned as the centerpiece of Vision 2030's economic diversification strategy. The 19 square kilometer development in northwest Riyadh presents significant opportunities for Korean enterprises across construction, technology, and energy sectors, supported by enhanced bilateral investment frameworks and institutional arbitration mechanisms.</p>
+<div class="key-metrics">
+<div class="metric-card">
+<div class="metric-value">$50B</div>
+<div class="metric-label">Total Investment Value</div>
+</div>
+<div class="metric-card">
+<div class="metric-value">19</div>
+<div class="metric-label">Square Kilometers</div>
+</div>
+<div class="metric-card">
+<div class="metric-value">86%</div>
+<div class="metric-label">Excavation Progress</div>
+</div>
+<div class="metric-card">
+<div class="metric-value">2030</div>
+<div class="metric-label">Target Completion</div>
+</div>
+</div>
+<div class="image-container">
+<img alt="무카브 황금 정육면체 조감도" src="image2" style="width: 100%; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/>
+<div class="image-caption">New Murabba 프로젝트의 상징인 무카브(Mukaab) 건축물</div>
+</div>
+<div class="media-section">
+<div class="media-title">Source Materials</div>
+<div class="media-links">
+<a class="media-link" href="https://newmurabba.com/en/" target="_blank">New Murabba Official Documentation</a>
+<a class="media-link" href="https://youtu.be/g-hZRdQfgBQ?si=FpVYLiS-AWinGMDA" target="_blank">Project Overview Presentation</a>
+</div>
+</div>
+</section>
+<div class="content">
+<section class="section">
+<div class="section-header">
+<div class="section-number">Section 01</div>
+<h1 class="section-title">Project Overview &amp; Market Position</h1>
+</div>
+<p class="lead-paragraph">New Murabba Development Company (NMDC), wholly owned by Saudi Arabia's Public Investment Fund, is executing this transformational urban development at the intersection of King Salman Road and King Khalid Road, encompassing the al-Malqa and al-Qirawan districts.</p>
+<div class="media-section">
+<div class="media-title">Technical Documentation</div>
+<div class="media-links">
+<a class="media-link" href="https://youtu.be/x1pk29STVng?si=ZZq10PJlV1QMHbnL" target="_blank">Mukaab Architecture &amp; Engineering</a>
+</div>
+</div>
+<div class="image-container">
+<img alt="무카브 야경 전경" src="image15" style="width: 100%;"/>
+<div class="image-caption">무카브(Mukaab) 건축물의 야경과 주변 도시 조망</div>
+</div>
+<h2 class="section-subtitle">Core Infrastructure Specifications</h2>
+<table class="data-table">
+<thead>
+<tr>
+<th>Component</th>
+<th>Specification</th>
+<th>Status</th>
+<th>Completion Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mukaab Structure</td>
+<td class="number">400m³ cube</td>
+<td>Design Complete</td>
+<td>Dec 2030</td>
+</tr>
+<tr>
+<td>Residential Units</td>
+<td class="number">119,000</td>
+<td>Planning Phase</td>
+<td>Dec 2030</td>
+</tr>
+<tr>
+<td>Hotel Capacity</td>
+<td class="number">9,000 rooms</td>
+<td>Pre-Development</td>
+<td>Dec 2030</td>
+</tr>
+<tr>
+<td>Commercial Space</td>
+<td class="number">980,000 m²</td>
+<td>Planning Phase</td>
+<td>Dec 2030</td>
+</tr>
+<tr>
+<td>Green Space Ratio</td>
+<td class="number">25%</td>
+<td>Design Phase</td>
+<td>Dec 2030</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-box">
+<p><strong>Construction Progress:</strong> Excavation works are 86% complete with substantial earthmoving operations underway. However, contracted value remains significantly below the $50B target, indicating substantial procurement opportunities ahead.</p>
+</div>
+<h2 class="section-subtitle">Mukaab: Architectural Centerpiece</h2>
+<p>The 400-meter cubic structure represents the world's largest single building by volume (60 million cubic meters), designed by AtkinsRéalis incorporating traditional Najdi architectural elements with advanced holographic display technology. The structure will serve as the project's commercial and cultural nexus.</p>
+<div class="image-container">
+<img alt="무카브 내부 홀로그래픽 공간" src="image3" style="width: 100%;"/>
+<div class="image-caption">무카브 내부의 홀로그래픽 아랍 서예 디스플레이</div>
+</div>
+<div class="image-container">
+<img alt="무카브 내부 또 다른 모습" src="image4" style="width: 100%;"/>
+<div class="image-caption">무카브 내부의 몰입형 홀로그래픽 환경</div>
+</div>
+<div class="image-container">
+<img alt="New Murabba 도시 전경" src="image5" style="width: 100%;"/>
+<div class="image-caption">New Murabba 도시 전체 조감도와 미래형 교통 시스템</div>
+</div>
+<div class="image-container">
+<img alt="주거 지역 공원" src="image6" style="width: 100%;"/>
+<div class="image-caption">New Murabba 주거 지역의 가족 친화적 공간과 스마트 시설</div>
+</div>
+</section>
+<section class="section">
+<div class="section-header">
+<div class="section-number">Section 02</div>
+<h1 class="section-title">Korean Market Penetration Analysis</h1>
+</div>
+<div class="highlight-box success">
+<p><strong>Market Leadership:</strong> Korean construction firms maintain dominant market position in Saudi Arabia. The Kingdom stands as one of their largest overseas construction markets globally.</p>
+</div>
+<div class="media-section">
+<div class="media-title">Market Analysis</div>
+<div class="media-links">
+<a class="media-link" href="https://youtu.be/Dj2jErpwQQk?si=yQqAoSNmTUta4_wh" target="_blank">Korean Construction Companies in Saudi Megaprojects</a>
+</div>
+</div>
+<div class="image-container">
+<img alt="한국-사우디 건설 협력" src="image9" style="width: 100%;"/>
+<div class="image-caption">한국 엔지니어와 사우디 파트너의 건설 현장 협력</div>
+</div>
+<h2 class="section-subtitle">Major Korean Contractors Performance</h2>
+<div class="company-grid">
+<div class="company-card">
+<div class="company-name">Samsung C&amp;T</div>
+<ul class="company-projects">
+<li><strong>Tadawul Tower:</strong> 42-story Saudi Stock Exchange headquarters (completed Oct 2022)</li>
+<li><strong>NEOM "The Line" Tunnel:</strong> Joint venture with Hyundai Engineering (2023)</li>
+<li><strong>Construction Robotics JV:</strong> Automation technology partnership with NEOM</li>
+</ul>
+</div>
+<div class="company-card">
+<div class="company-name">Hyundai Engineering</div>
+<ul class="company-projects">
+<li><strong>Amiral Petrochemical Complex:</strong> $5.0B Saudi Aramco EPC contract (2024)</li>
+<li><strong>Jafurah Gas Field:</strong> $1.5B development contract (2023)</li>
+<li><strong>HVDC Transmission Lines:</strong> $1.26B across three projects (2027 completion)</li>
+</ul>
+</div>
+<div class="company-card">
+<div class="company-name">POSCO E&amp;C</div>
+<ul class="company-projects">
+<li><strong>Active Projects:</strong> $500M sulfur freight facilities and Yanbu wastewater treatment</li>
+<li><strong>Pipeline Projects:</strong> $2.92B Vision 2030 related opportunities under negotiation</li>
+<li><strong>Strategic Investment:</strong> Saudi PIF 38% equity stake ($1.1B investment)</li>
+</ul>
+</div>
+</div>
+<h2 class="section-subtitle">Technology Sector Penetration</h2>
+<div class="media-section">
+<div class="media-title">Technology Integration</div>
+<div class="media-links">
+<a class="media-link" href="https://youtu.be/ZmEpru03t_M?si=H2BiEDu0ZdR_xYqo" target="_blank">Samsung Electronics &amp; LG Smart City Solutions</a>
+</div>
+</div>
+<div class="image-container">
+<img alt="스마트시티 관제센터" src="image11" style="width: 100%;"/>
+<div class="image-caption">사우디 스마트시티 통합 관제 시스템</div>
+</div>
+<div class="image-container">
+<img alt="AR/VR 교육 시스템" src="image13" style="width: 100%;"/>
+<div class="image-caption">New Murabba의 첨단 교육 시설과 AR/VR 기술</div>
+</div>
+<table class="data-table">
+<thead>
+<tr>
+<th>Company</th>
+<th>Technology Focus</th>
+<th>Project Value</th>
+<th>Implementation Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Samsung Electronics</td>
+<td>5G Infrastructure, Memory Solutions</td>
+<td class="number">Undisclosed</td>
+<td>2024-2027</td>
+</tr>
+<tr>
+<td>LG Electronics</td>
+<td>Smart City Systems, IoT Integration</td>
+<td class="number">Under Negotiation</td>
+<td>2025-2028</td>
+</tr>
+<tr>
+<td>SK Group</td>
+<td>5G, Green Technology</td>
+<td class="number">Strategic Partnership</td>
+<td>2024-2030</td>
+</tr>
+<tr>
+<td>KT Corporation</td>
+<td>AI/Robotics Investment</td>
+<td class="number">$1.2B</td>
+<td>2024-2027</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="section">
+<div class="section-header">
+<div class="section-number">Section 03</div>
+<h1 class="section-title">Bilateral Energy &amp; Industrial Cooperation</h1>
+</div>
+<div class="media-section">
+<div class="media-title">Strategic Partnership Analysis</div>
+<div class="media-links">
+<a class="media-link" href="https://youtu.be/6ec7oJANT_U?si=lP5TEsRr48TZk8CE" target="_blank">Crown Prince Visit &amp; $30B Agreement Documentation</a>
+</div>
+</div>
+<div class="image-container">
+<img alt="한-사우디 비즈니스 만찬" src="image8" style="width: 100%;"/>
+<div class="image-caption">한국-사우디 비즈니스 파트너십 만찬</div>
+</div>
+<div class="image-container">
+<img alt="K-POP 콘서트" src="image10" style="width: 100%;"/>
+<div class="image-caption">사우디에서 개최된 K-POP 콘서트와 한류 확산 - 양국 문화 교류의 상징</div>
+</div>
+<h2 class="section-subtitle">November 2022 Summit Outcomes</h2>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-date">2022.11.16-17</div>
+<div class="timeline-content">
+<div class="timeline-title">Crown Prince Mohammed bin Salman State Visit</div>
+<p>Comprehensive bilateral agreement framework established: $30 billion aggregate value across 26+ MOUs covering energy, hydrogen, rail, petrochemicals, defense, pharmaceuticals, and gaming sectors.</p>
+</div>
+</div>
+</div>
+<h2 class="section-subtitle">Major Energy Projects Portfolio</h2>
+<div class="media-section">
+<div class="media-title">Energy Project Documentation</div>
+<div class="media-links">
+<a class="media-link" href="https://youtu.be/bT6PsPk0g6Q?si=AW7rMS9LXapUUl37" target="_blank">KEPCO Green Hydrogen &amp; S-Oil Shaheen Project</a>
+</div>
+</div>
+<div class="image-container">
+<img alt="태양광 발전소" src="image12" style="width: 100%;"/>
+<div class="image-caption">사우디 대규모 태양광 발전 프로젝트에서 협력하는 한국-사우디 엔지니어</div>
+</div>
+<table class="data-table">
+<thead>
+<tr>
+<th>Project</th>
+<th>Investment Value</th>
+<th>Technology</th>
+<th>Timeline</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S-Oil Aramco Shaheen (Ulsan, South Korea)</td>
+<td class="number">$7.0B</td>
+<td>TC2C Crude-to-Chemicals</td>
+<td>2023-2026</td>
+<td>Under Construction</td>
+</tr>
+<tr>
+<td>Hyundai Motor Hydrogen Plant</td>
+<td class="number">$500M+</td>
+<td>Hydrogen Vehicle Production</td>
+<td>2024-2026</td>
+<td>Construction Phase</td>
+</tr>
+<tr>
+<td>KEPCO Green Hydrogen</td>
+<td class="number">$6.5B</td>
+<td>Green Hydrogen &amp; Ammonia</td>
+<td>2025-2029</td>
+<td>Development Phase</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-box">
+<p><strong>Strategic Rationale:</strong> Energy cooperation leverages Saudi Arabia's renewable energy potential and Korea's advanced technology capabilities, creating integrated value chains across the hydrogen economy spectrum.</p>
+</div>
+</section>
+<section class="section">
+<div class="section-header">
+<div class="section-number">Section 04</div>
+<h1 class="section-title">Regulatory Environment Assessment</h1>
+</div>
+<h2 class="section-subtitle">New Investment Law Implementation (February 2025)</h2>
+<div class="media-section">
+<div class="media-title">Regulatory Framework</div>
+<div class="media-links">
+<a class="media-link" href="https://youtu.be/bRh_oy6yItI?si=I2DWeVW_F3bQH617" target="_blank">Saudi Investment Law &amp; Foreign Investment Opportunities</a>
+</div>
+</div>
+<div class="highlight-box success">
+<p><strong>Regulatory Reform:</strong> Royal Decree No. M/19 (August 11, 2024) establishes equal treatment framework for foreign and domestic investors, transitioning from permit-based to registration-based system effective February 7, 2025.</p>
+</div>
+<h2 class="section-subtitle">Regional Headquarters (RHQ) Program</h2>
+<table class="data-table">
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Specification</th>
+<th>Compliance Timeline</th>
+<th>Incentive Period</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Minimum Employment</td>
+<td class="number">15 FTE</td>
+<td>12 months</td>
+<td>30 years</td>
+</tr>
+<tr>
+<td>Executive Presence</td>
+<td class="number">3 C-Level</td>
+<td>6 months</td>
+<td>30 years</td>
+</tr>
+<tr>
+<td>Corporate Tax Rate</td>
+<td class="number">0%</td>
+<td>Immediate</td>
+<td>30 years</td>
+</tr>
+<tr>
+<td>Saudization Exemption</td>
+<td class="number">100%</td>
+<td>Immediate</td>
+<td>10 years</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-box">
+<p><strong>Market Response:</strong> 184 multinational corporations relocated regional headquarters to Saudi Arabia in H1 2024, demonstrating program effectiveness and competitive positioning.</p>
+</div>
+<h2 class="section-subtitle">Nitaqat Localization Updates</h2>
+<p>2024 regulatory updates classify foreign investors as Saudi nationals for Nitaqat purposes, significantly reducing localization compliance burdens while maintaining sector-specific requirements for engineering (30%), accounting (40%), and project management (40%) roles.</p>
+</section>
+<section class="section">
+<div class="section-header">
+<div class="section-number">Section 05</div>
+<h1 class="section-title">Dispute Resolution Framework</h1>
+</div>
+<h2 class="section-subtitle">Saudi Commercial Arbitration Center (SCCA)</h2>
+<div class="image-container">
+<img alt="SCCA 중재 회의" src="image1" style="width: 100%;"/>
+<div class="image-caption">사우디 상사중재센터(SCCA)에서의 한국-사우디 중재 회의</div>
+</div>
+<table class="data-table">
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+<th>International Standard</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Establishment Date</td>
+<td>March 15, 2014</td>
+<td>N/A</td>
+<td>Mature Institution</td>
+</tr>
+<tr>
+<td>Case Value</td>
+<td class="number">$1.3B+</td>
+<td>Regional Leadership</td>
+<td>Substantial Experience</td>
+</tr>
+<tr>
+<td>Arbitrator Panel</td>
+<td class="number">260+</td>
+<td>20+ Countries</td>
+<td>International Expertise</td>
+</tr>
+<tr>
+<td>Office Locations</td>
+<td>4</td>
+<td>Regional Coverage</td>
+<td>Accessible</td>
+</tr>
+</tbody>
+</table>
+<h2 class="section-subtitle">International Treaty Framework</h2>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-date">1994.04.19</div>
+<div class="timeline-content">
+<div class="timeline-title">New York Convention Accession</div>
+<p>Saudi Arabia acceded to the Convention on Recognition and Enforcement of Foreign Arbitral Awards with reciprocity reservation.</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-date">2002.04.04</div>
+<div class="timeline-content">
+<div class="timeline-title">Korea-Saudi BIT Execution</div>
+<p>Bilateral Investment Treaty entered into force February 19, 2003, providing ICSID arbitration access and comprehensive investment protection.</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-date">2020.05.05</div>
+<div class="timeline-content">
+<div class="timeline-title">Singapore Mediation Convention</div>
+<p>Saudi Arabia signed and ratified the UN Convention on International Settlement Agreements Resulting from Mediation.</p>
+</div>
+</div>
+</div>
+<div class="image-container">
+<img alt="중재 협정 서명" src="image14" style="width: 100%;"/>
+<div class="image-caption">한-사우디 국경간 중재 협정 서명식</div>
+</div>
+<div class="highlight-box">
+<p><strong>Legal Infrastructure Assessment:</strong> Saudi Arabia's arbitration framework aligns with international best practices, providing institutional mechanisms for dispute resolution that meet requirements for large-scale infrastructure investment.</p>
+</div>
+</section>
+</div>
+<div class="investment-thesis">
+<div style="display: flex; align-items: center; margin-bottom: 24px;">
+<div style="width: 24px; height: 24px; background: rgba(255, 255, 255, 0.2); margin-right: 16px; transform: rotate(45deg); border: 1px solid rgba(255, 255, 255, 0.3);"></div>
+<div>
+<h2 style="margin: 0; color: #FFFFFF;">Investment Thesis &amp; Strategic Recommendations</h2>
+<div style="font-size: 12px; opacity: 0.8; margin-top: 4px;">CASSIAN'S STRATEGY LAB • INSIDE THE CUBE ANALYSIS</div>
+</div>
+</div>
+<p class="lead-paragraph">New Murabba presents a compelling investment opportunity for Korean enterprises, supported by established market presence, favorable regulatory environment, and comprehensive risk mitigation frameworks.</p>
+<div class="thesis-points">
+<div class="thesis-point">
+<h3>Market Position Leverage</h3>
+<p>Korean construction firms' extensive contract base provides unparalleled market access and relationship capital for New Murabba participation.</p>
+</div>
+<div class="thesis-point">
+<h3>Regulatory Alignment</h3>
+<p>2025 Investment Law implementation and RHQ incentives create 30-year tax optimization opportunities with minimal compliance burden.</p>
+</div>
+<div class="thesis-point">
+<h3>Technology Integration</h3>
+<p>Smart city requirements align with Korean ICT capabilities in 5G, IoT, and urban automation systems, creating integrated solution opportunities.</p>
+</div>
+<div class="thesis-point">
+<h3>Risk Mitigation</h3>
+<p>Established arbitration framework, bilateral investment treaty protection, and proven dispute resolution mechanisms minimize execution risk.</p>
+</div>
+<div class="thesis-point">
+<h3>ESG Alignment</h3>
+<p>25% green space mandate and sustainability requirements match Korean firms' environmental technology capabilities and ESG positioning.</p>
+</div>
+</div>
+</div>
+<div class="content">
+<section class="section">
+<div class="section-header">
+<div class="section-number">Risk Assessment</div>
+<h1 class="section-title">Key Risk Factors</h1>
+</div>
+<div class="image-container">
+<img alt="New Murabba 도시 전체 전경" src="image5" style="width: 100%;"/>
+<div class="image-caption">완성 예정인 New Murabba 프로젝트의 전체 도시 조망</div>
+</div>
+<div class="risk-matrix">
+<div class="risk-item">
+<div class="risk-title">Execution Risk</div>
+<div class="risk-description">$50B target investment vs. $3.6B contracted to date indicates substantial procurement pipeline execution risk.</div>
+</div>
+<div class="risk-item">
+<div class="risk-title">Technology Transfer Requirements</div>
+<div class="risk-description">Increasing Saudi emphasis on technology localization may require substantial IP sharing arrangements.</div>
+</div>
+<div class="risk-item">
+<div class="risk-title">Regulatory Evolution</div>
+<div class="risk-description">Rapid regulatory changes require continuous compliance monitoring and adaptive legal strategies.</div>
+</div>
+<div class="risk-item">
+<div class="risk-title">Geopolitical Considerations</div>
+<div class="risk-description">Regional stability and international relations impact may affect long-term project viability and financing.</div>
+</div>
+</div>
+</section>
+</div>
+<footer class="footer">
+<div class="footer-content">
+<div>
+<div style="display: flex; align-items: center; margin-bottom: 12px;">
+<div style="width: 16px; height: 16px; background: #FFFFFF; margin-right: 12px; transform: rotate(45deg); opacity: 0.7;"></div>
+<div>
+<strong>Cassian's Strategy Lab</strong><br/>
+<span style="font-size: 11px; opacity: 0.8;">Inside the Cube Analysis Series</span>
+</div>
+</div>
+<div class="disclaimer">
+                        This analysis is prepared for institutional investors and contains forward-looking statements subject to risks and uncertainties. Past performance does not guarantee future results. All financial figures are estimates based on publicly available information and should be independently verified.
+                    </div>
+</div>
+<div style="text-align: right;">
+<strong>Confidential &amp; Proprietary</strong><br/>
+                    June 2025 • Version 1.0<br/>
+<span style="font-size: 10px; opacity: 0.7;">Strategic Investment Research</span>
+</div>
+</div>
+</footer>
+</div>
+<script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        // Add target="_blank" to external links
+        document.querySelectorAll('a[href^="http"]').forEach(link => {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        });
+        // Print optimization
+        window.addEventListener('beforeprint', function() {
+            document.body.classList.add('printing');
+        });
+        window.addEventListener('afterprint', function() {
+            document.body.classList.remove('printing');
+        });
+    </script>
+</body>
+</html>
